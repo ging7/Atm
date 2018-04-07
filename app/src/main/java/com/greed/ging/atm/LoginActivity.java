@@ -23,6 +23,9 @@ public class LoginActivity extends AppCompatActivity {
         if (uid.equals("luffy") && pw.equals("1234")){
             //登入成功
             Toast.makeText(this, "登入成功", Toast.LENGTH_LONG).show();
+            getIntent().putExtra("LOGIN_USERID", uid);
+            getIntent().putExtra("LOGIN_PASSWD", pw);
+            setResult(RESULT_OK, getIntent());
             finish();
         }else {
             //登入失敗
