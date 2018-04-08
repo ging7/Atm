@@ -14,7 +14,7 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     //ListView lv_atm;
     GridView gv_atm;
@@ -32,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
         gv_atm = findViewById(R.id.gv_atm);
         ArrayAdapter gAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, func);
         gv_atm.setAdapter(gAdapter);
+        gv_atm.setOnItemClickListener(this);
         //使用spinner
         notify = this.findViewById(R.id.spin_atm);
         final ArrayAdapter<CharSequence> nAdapter = ArrayAdapter.createFromResource(this, R.array.notify_array, android.R.layout.simple_spinner_item);
@@ -89,6 +90,23 @@ public class MainActivity extends AppCompatActivity {
             }else{
                 finish();
             }
+        }
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        switch (position){
+            case 0:
+                break;
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                finish();
+                break;
         }
     }
 }
