@@ -135,15 +135,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch ((int)id){
-            case 0:
+            case R.drawable.func_balance:
                 break;
-            case 1:
+            case R.drawable.func_history:
                 break;
-            case 2:
+            case R.drawable.func_news:
                 break;
-            case 3:
+            case R.drawable.func_finance:
+                startActivity(new Intent(this, FinanceActivity.class));
                 break;
-            case 4:
+            case R.drawable.func_exit:
                 finish();
                 break;
         }
