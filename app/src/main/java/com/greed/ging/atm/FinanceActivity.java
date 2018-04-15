@@ -20,9 +20,14 @@ public class FinanceActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         ListView list = (ListView) findViewById(R.id.list);
-        MyDBHelper helper = new MyDBHelper(this, "expense.db", null, 1);
+        MyDBHelper helper = MyDBHelper.getInstance(this);
         Cursor c = helper.getReadableDatabase().query("exp", null, null, null, null, null, null);
-        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this, android.R.layout.simple_expandable_list_item_2, c, new String[] {"info", "amount"}, new int[]{android.R.id.text1, android.R.id.text2}, 0);
+        SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,
+                R.layout.finance_row,
+                c,
+                new String[] {"cdate", "info", "amount"},
+                new int[]{R.id.txt_item_cdate, R.id.txt_item_info, R.id.txt_item_amount},
+                0);
         list.setAdapter(adapter);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
